@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Explore Airline</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('https://dulichsaigon.edu.vn/wp-content/uploads/2024/01/da-nang-top-10-thanh-pho-dang-de-du-lich-nhat.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.head {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    padding-left: 95px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.line_navbar {
+    border-bottom: 1px solid #566DC0;
+    width: 1250px;
+    margin: auto;
+}
+
+.head .name {
+    width: 50%;
+    height: 100%;
+    font-size: 50px;
+    font-family: sans-serif;
+    font-style: italic;
+    padding-left: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.head .mn {
+    padding-right: 180px;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.head .mn ul {
+    font-size: 22px;
+    list-style: none;
+    display: flex;
+    gap: 45px;
+    font-family: sans-serif;
+}
+
+.mn .logsig {
+    width: 230px;
+    height: 50px;
+    /* border: 1px solid red; */
+    margin-left: 30px;
+    display: flex;
+}
+
+.logsig .bt1 {
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1F5A8B;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    
+}
+
+.logsig .bt2 {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-left: 25px;
+    border-radius: 20px;
+    color: white;
+    border: none;
+    background-color: #1F5A8B;
+    cursor: pointer;
+}
+
+.logsig .bt1:hover,
+.logsig .bt2:hover {
+    transition: 0.4s;
+    background-color: #0b1892;
+}
+
+.head .mn ul li {
+    position: relative;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.head .mn ul li:hover {
+    transform: translateY(-5px);
+    color: #0b1892;
+}
+
+.main
+{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 30px;
+}
+
+.main .card
+{
+    width: 200px;
+    height: 270px;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.main .card .top
+{
+    width: 100%;
+    height: 50%;
+}
+
+.main .card .top img
+{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.main .card .bottom
+{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.main .card .bottom .name
+{
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 22px;
+    font-family: sans-serif;
+}
+
+.main .card .bottom .local
+{
+    display: flex;
+    padding-left: 10px;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.main .card .bottom .local i
+{
+    color: orangered;
+}
+
+.main .card .bottom .local span
+{
+    font-size: 18px;
+    color: gray;
+    font-style: italic;
+}
+
+.main .card .bottom .cost
+{
+    padding-left: 10px;
+    padding-top: 20px;
+    font-size: 16px;
+    font-style: italic;
+    font-family: sans-serif;
+    color: blue;
+}
+.main .card .bottom .cost .green
+{
+    color: green;
+}
+    </style>
+</head>
+
+<body>
+    <!-- start head -->
+    <div class="head">
+        <div class="name">Airline</div>
+        <div class="mn">
+            <ul>
+                <a href="home.html">
+                    <li>Home</li>
+                </a>
+                
+                <a href="booking.html">
+                    <li>Booking</li>
+                </a>
+                <a href="explore.html">
+                    <li style="color: #5508EE;">Explore</li>
+                </a>
+                
+            </ul>
+            <div class="logsig">
+                <a href="login.html"><button class="bt1">Login</button></a>
+                <a href="signup.html"><button class="bt2">Signup</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="line_navbar"></div>
+    <!-- end head -->
+     <div class="main">
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+        <div class="card">
+            <div class="top">
+                <img src="https://static.vinwonders.com/production/ho-hoan-kiem-banner.jpg" alt="">
+            </div>
+            <div class="bottom">
+                <span class="name">Hồ Gươm</span>
+                <span class="local">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Hà Nội</span>
+                </span>
+                <span class="cost">Giá khởi điểm: <span class="green">2.450.000</span> </span>
+            </div>
+        </div>
+     </div>
+</body>
+
+</html>

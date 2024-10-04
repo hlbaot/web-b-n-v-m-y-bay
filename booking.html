@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Airline</title>
+    <link rel="shortcut icon" href="logo.png">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        /* reset */
+html, body { 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  /* navbar */
+  .wrap {
+    min-height: 100vh;
+    background-color: #d8e9ff;
+    margin: 0px;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    overflow: auto; 
+    box-sizing: border-box; 
+  }
+
+  span{
+    font-family: sans-serif;
+  }
+  
+  .navbar{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+  }
+  
+  .navbar_title{
+    font-size: 50px;
+    font-weight: 500;
+    font-style: italic;
+  }
+  .navbar_wrap{
+    display: flex;
+    gap: 30px;
+    font-size: 22px;
+  }
+  
+  .navbar_selection{
+      display: flex;
+      gap : 24px;
+      align-items: center;
+  
+  }
+  
+  .navbar_selection a{
+    text-decoration: none;
+    color: black;
+    transition: transform 0.2s ease-in-out;
+  
+  }
+  
+  .navbar_selection a:hover{
+    transform: translateY(-5px);
+  }
+  
+  #navbar_selection_click{
+    color:#5508EE ;
+  }
+  
+  .navbar_enter{
+    display: flex;
+    gap: 10px;
+  }
+  
+  .enter_button{
+    padding: 10px 25px;
+    border-radius: 20px;
+    border: none;
+    background-color: #1F5A8B;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 15px;
+  }
+
+  .enter_button:hover {
+      transition: 0.4s;
+      background-color: #1b29a5;
+  }
+
+   .line_navbar{
+    border-bottom: 1px solid #566DC0;
+    width: 1200px;
+    margin: auto;
+   }
+  
+  
+  .body_header{
+    width: 1200px;
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+    margin-top: 50px;
+    background-color: white;
+    border-radius: 30px;
+    margin: 50px auto;
+    align-items: center;
+  }
+  
+  .infor_front{
+    height: 80%;
+    border-right: 1px solid;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+  }
+  
+  .location_info{
+    font-size: 25px;
+    font-weight: 400px;
+  }
+  
+  
+  .infor_time{
+    padding-top: 10px;
+    font-size: 18px;
+    font-weight: 300px;
+    opacity: 0.4;
+  }
+  
+  .infor_back{
+    display: flex;
+    gap: 20px;
+    border-right: 1px solid black;
+    height: 80%;
+    align-items: center;
+  }
+  
+  .infor_back select{
+    background-color: white;
+    border: none;
+    font-size: 15px;
+    padding: 0 10px;
+    margin-right: 50px;
+    cursor: pointer;
+    height: 30px;
+    border-radius: 30px;
+    width: 100px;
+  }
+  
+  
+  .infor_back select:focus{
+    outline: none;
+  }
+  
+  .search {
+    margin: 0 40px;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: none;
+    background-color: #7df0cb;
+    cursor: pointer;
+    width: 180px;
+    height: 40px;
+}
+
+.search i {
+    font-size: 20px;
+}
+
+.search span {
+    border-left: 1px solid;
+    padding-left: 5px;
+    font-size: 18px;
+}
+
+.search:hover {
+    background-color: #18f0a8;
+}
+  
+  .body_container{
+    width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .container_filter{
+    width: 200px;
+    height: 300px;
+    border-radius: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .container_filter span{
+    padding-left: 10px;
+    padding-top: 20px;
+    font-size: 25px;
+  }
+
+  option
+  {
+    background-color: white;
+  }
+  
+  .container_filter select{
+    width: 120px;
+    border: none;
+    border-radius: 20px;
+    background-color: #92BEF8;
+    height: 25px;
+    font-size: 13px;
+    appearance: none;
+    text-align: center;
+    position: relative;
+    padding-left: 15px;
+  }
+  
+  .container_filter i{
+    position: relative;
+    top: 34px;
+    z-index: 2;
+    right: 44px;
+    font-size: 13px;
+    color: white;
+  }
+  
+  
+  .container_filter select:focus{
+    outline:  none;
+  }
+  
+  /* Flight detail */
+  .Flight_detail_wrap{
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .Flight_detail{
+    display: flex;
+    width: 950px;
+    gap: 100px;
+    float: right;
+    gap: 40px;
+    height: 120px;
+    background-color: white;
+    border-radius: 20px;
+    align-items: center;
+  }
+  
+  .flight_detail-infor{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-left: 40px;
+  }
+  
+  .flight_detail-brand{
+    font-size: 16px;
+  } 
+  
+  .detail_btn{
+    border-radius: 20px;
+    border: none;
+    background-color: #74D9EB;
+    cursor: pointer;
+    height: 25px;
+    font-weight: 500;
+    width: 200px;
+  } 
+  .detail_btn:hover{
+    background-color: #33a9e3 ;
+  }
+  
+  .flight_detail-location{
+    display: flex;
+    border-right: 1px solid;
+    padding-right: 60px ;
+    height: 100px;
+    align-items: center;
+  }
+  
+  .arrow-container{
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+  }
+  .line {
+    width: 200px;
+    height: 2px;
+    background-color: black;
+  }
+  .line_size-s{
+    width: 15px;
+    height: 2px;
+    background-color: black;
+  }
+  .arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 10px solid black;
+  }
+  
+  .detail_location{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .detail_price{
+    background-color: #B9D7FF;
+    width: 150px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .price span{
+    color: #1F5A8B;
+  }
+  .price_perclient{
+    color: red !important;
+  }
+  
+  .select-btn{
+    width: 120px;
+    border-radius: 20px;
+    background-color: #1DC79F;
+    border: none;
+    cursor: pointer;
+  }
+  .select-btn:hover{
+    background-color: #18f0a8;
+  }
+  
+  
+  /* modal */
+  .modal_background{
+    min-height: 100vh;
+    background-color: rgb(48, 47, 47);
+    margin: 0px;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    overflow: auto; 
+    box-sizing: border-box; 
+    z-index: 2;
+    opacity: 0.8;
+  }
+  
+  .modal{
+    margin: auto;
+    width: 1000px;
+    height: 560px;
+    background-color: #e0e4e4;
+    z-index: 5;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .modal_navbar{
+    width: 1000px;
+    background-color: #7CB4FD;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: 500;
+  }
+  
+  .modal_body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .modal_flight-card{
+    padding-top: 10px;
+    width: 900px;
+    height: 100px;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .flight_title{
+    font-size: 22px;
+    font-weight: 500;
+  }
+  
+  .flight_tranfer{
+    display: flex;
+    padding: 10px 0;
+    gap: 10px;
+  }
+  .flight_tranfer span{
+    font-size: 15px;
+    color: #C7C7C7;
+  }
+  
+  .modal_card-detail{
+    color: #C7C7C7;
+    display: flex;
+    gap: 20px;
+  }
+  .date{
+    border-right: 1px solid;
+    padding-right: 20px;
+    height: 20px;
+  }
+  .number_client{
+    border-right: 1px solid;
+    padding-right: 20px;
+    height: 20px;
+  }
+  
+  .modal_detail-wrap{
+    display: flex;
+    padding-top: 20px;
+    width: 940px;
+    justify-content: space-between;
+    
+  }
+  
+  .modal_detail-left{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+  }
+  
+  .modal_detail{
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    justify-content: space-evenly;
+    width: 600px;
+  }
+  
+  .modal_detail-title{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 20px;
+    padding-left: 10px;
+    border-bottom: 1px solid;
+    width: 550px;
+  }
+  .flight_tranfer-title{
+    font-size: 20px;
+    color: #3f5394;
+    font-weight: 600;
+  }
+  
+  .date-detail{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .modal_detail-body{
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .modal_detail-body-title{
+    font-size: 20px;
+    width: 30px;
+    font-weight: 600;
+    color: #2C3860;
+    padding-bottom: 10px;
+  }
+  .modal_detail-body img{
+    width: 80px;
+    border-radius: 20px;
+  }
+  .time_detail{
+    margin-left: 180px;
+    display: flex;
+    gap: 10px;
+    height: 50px;
+    align-items: center;
+  }
+  .modal_time{
+    font-size: 20px;
+    font-weight: 600; 
+  }
+  
+  .time_gap{
+    margin-bottom: 20px;
+    border-bottom: 1px solid;
+    width: 50px;
+    justify-content: center;
+    display: flex;
+  }
+  
+  .modal_price{
+    width: 600px;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    height: 90px;
+  }
+  
+  .modal_price-detail{
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .modal_price-type span:nth-child(1) {
+    color: black; 
+    font-size: 17px;
+  }
+  .modal_price-type span:nth-child(2) {
+    color: #C7C7C7; /* Ví dụ: đổi màu chữ thành xanh */
+  }
+  
+  
+  .price_submit{
+      background-color: #211D95;
+      color: white;
+      width: 240px;
+      height: 50px;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-left: 150px;
+      cursor: pointer;
+  }
+  .price_submit:hover{
+    background-color: #5c55ec;
+  }
+  
+  .modal_information{
+      width: 300px;
+      height: 295px;
+      background-color: white;
+      border-radius: 20px;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 15px;
+  }
+  
+  .modal_information-title{
+   font-size: 20px;
+  }
+  
+  .modal_infor-title{
+    color: #C2BCBC;
+    
+  }
+  
+  .modal_form-infor{
+    padding-left: 20px;
+    border: 1px solid;
+    width: 240px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-evenly;
+    
+  }
+  
+  .modal_form-from{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid;
+    width: 200px;
+    padding-top: 10px;
+  } 
+  
+  .modal_form-to{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 10px;
+  }
+  
+  .disable{
+    display: none;
+  }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="navbar">
+            <div class="navbar_title">Airline</div>
+            <div class="navbar_wrap">
+                <div class="navbar_selection">
+                    <a href="home.html">Home</a>
+                    <a id="navbar_selection_click" href="booking.html">Booking</a>
+                    <a href="explore.html">Explore</a>
+                </div>
+                <div class="navbar_enter">
+                    <a href="login.html">
+                        <button class="enter_button">Login</button>
+                    </a>
+                    <a href="signup.html">
+                        <button class="enter_button">Signup</button>
+                    </a>     
+                </div>
+            </div>
+        </div>
+        <div class="line_navbar"></div>
+        <div class="body">
+            <!-- infor_bar -->
+            <div class="body_header">
+                <div class="infor_front">
+                    <div class="location_info">
+                        <span class="location_from">TP HCM</span>
+                        <i class='bx bx-right-arrow-alt'></i>
+                        <span class="location_to">Ha Noi</span>
+                    </div>
+                    <div class="infor_time">Chủ nhật, 17 tháng 4 năm 2022</div>
+                </div>
+                <div class="infor_back">
+                    <select name="">
+                        <option value="1">1 người</option>
+                        <option value="2">2 người</option>
+                        <option value="3">3 người</option>
+                    </select>
+                    <select name="">
+                        <option value="1">Hạng 1</option>
+                        <option value="2">Hạng 2</option>
+                        <option value="3">Hạng 3</option>
+                    </select>
+                    <select name="">
+                        <option value="1">1 chiều</option>
+                        <option value="2">2 chiều</option>
+                    </select>
+                </div>
+                <button class="search">
+                    <i class='bx bx-search-alt-2'></i>
+                    <span>Search</span>
+                </button>
+            </div>
+            <div class="body_container">
+                <div class="container_filter">
+                    <span>LỌC</span>
+                    <i class='bx bxs-down-arrow'></i>
+                    <select name="hour">
+                        <option value="0">Thời gian bay</option>
+                        <option value="1">1:00</option>
+                        <option value="2">2:00</option>
+                        <option value="3">3:00</option>
+                        <option value="4">4:00</optiont>
+                        <option value="5">5:00</option>
+                        <option value="6">6:00</option>
+                        <option value="7">7:00</option>
+                        <option value="8">8:00</option>
+                        <option value="9">9:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">11:00</option>
+                        <option value="14">13:00</option>
+                        <option value="15">14:00</option>
+                        <option value="16">15:00</option>
+                        <option value="17">16:00</option>
+                        <option value="18">17:00</option>
+                        <option value="19">18:00</option>
+                        <option value="20">19:00</option>
+                        <option value="21">20:00</option>
+                        <option value="22">21:00</option>
+                        <option value="23">22:00</option>
+                        <option value="24">23:00</option>
+                    </select>
+                    <i class='bx bxs-down-arrow'></i>
+                    <select>
+                        <option value="0">Điểm đến</option>
+                        <option value="1">Ha Noi</option>
+                        <option value="2">TP HCM</option>
+                        <option value="3">Da Nang</option>
+                        <option value="4">Nha Trang</option>
+                        <option value="5">Vinh</option>
+                        <option value="6">Da Nang</option>
+                        <option value="7">Phu Quoc</option>
+                        <option value="8">Hue</option>
+                        <option value="9">Can Tho</option>
+                        <option value="10">Da Lat</option>
+                    </select>
+                    <i class='bx bxs-down-arrow'></i>
+                    <select>
+                        <option value="0">Hãng bay</option>
+                        <option value="1">Vietnam Airlines</option>
+                        <option value="2">Bamboo Airways</option>
+                        <option value="3">VietJet Air</option>
+                        <option value="4">Pacific Airlines</option>
+                        <option value="5">Vasco</option>
+                        <option value="6">Vietstar Airlines</option>
+                    </select>
+                </div>
+                <div class="Flight_detail_wrap">
+                    <div class="Flight_detail">
+                        <div class="flight_detail-infor">
+                            <span class="flight_detail-brand">Vietnam Airlines</span>
+                            <button class="detail_btn">Chi tiết chuyến bay</button>
+                        </div>
+                        <div class="flight_detail-location">
+                            <div class="detail_location">
+                                <span>20:00</span>
+                                <span>TP HCM</span>
+                            </div>
+                            <div class="arrow-container">
+                                <div class="line"></div>
+                                <div class="arrow-right"></div>
+                            </div>
+                            <div class="detail_location">
+                                <span>21:50</span>
+                                <span>Da Nang</span>
+                            </div>
+                        </div>
+                        <div class="detail_price">
+                            <div class="price">
+                                <span class="price_perclient">2.444.444</span>
+                                <span>/ khách</span>
+                            </div>
+                            <button class="select-btn">Chọn</button>
+                        </div>
+                    </div>
+                    <div class="Flight_detail">
+                        <div class="flight_detail-infor">
+                            <span class="flight_detail-brand">Vietnam Airlines</span>
+                            <button class="detail_btn">Chi tiết chuyến bay</button>
+                        </div>
+                        <div class="flight_detail-location">
+                            <div class="detail_location">
+                                <span>20:00</span>
+                                <span>TP HCM</span>
+                            </div>
+                            <div class="arrow-container">
+                                <div class="line"></div>
+                                <div class="arrow-right"></div>
+                            </div>
+                            <div class="detail_location">
+                                <span>21:50</span>
+                                <span>Da Nang</span>
+                            </div>
+                        </div>
+                        <div class="detail_price">
+                            <div class="price">
+                                <span class="price_perclient">2.444.444</span>
+                                <span>/ khách</span>
+                            </div>
+                            <button class="select-btn">Chọn</button>
+                        </div>
+                    </div>
+                    <div class="Flight_detail">
+                        <div class="flight_detail-infor">
+                            <span class="flight_detail-brand">Vietnam Airlines</span>
+                            <button class="detail_btn">Chi tiết chuyến bay</button>
+                        </div>
+                        <div class="flight_detail-location">
+                            <div class="detail_location">
+                                <span>20:00</span>
+                                <span>TP HCM</span>
+                            </div>
+                            <div class="arrow-container">
+                                <div class="line"></div>
+                                <div class="arrow-right"></div>
+                            </div>
+                            <div class="detail_location">
+                                <span>21:50</span>
+                                <span>Da Nang</span>
+                            </div>
+                        </div>
+                        <div class="detail_price">
+                            <div class="price">
+                                <span class="price_perclient">2.444.444</span>
+                                <span>/ khách</span>
+                            </div>
+                            <button class="select-btn">Chọn</button>
+                        </div>
+                    </div>
+                    <div class="Flight_detail">
+                        <div class="flight_detail-infor">
+                            <span class="flight_detail-brand">Vietnam Airlines</span>
+                            <button class="detail_btn">Chi tiết chuyến bay</button>
+                        </div>
+                        <div class="flight_detail-location">
+                            <div class="detail_location">
+                                <span>20:00</span>
+                                <span>TP HCM</span>
+                            </div>
+                            <div class="arrow-container">
+                                <div class="line"></div>
+                                <div class="arrow-right"></div>
+                            </div>
+                            <div class="detail_location">
+                                <span>21:50</span>
+                                <span>Da Nang</span>
+                            </div>
+                        </div>
+                        <div class="detail_price">
+                            <div class="price">
+                                <span class="price_perclient">2.444.444</span>
+                                <span>/ khách</span>
+                            </div>
+                            <button class="select-btn">Chọn</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- modal_card -->
+        <div class="modal_background disable "></div>
+        <div class="modal disable  ">
+            <div class="modal_navbar">Thông tin chuyến bay</div>
+            <div class="modal_body">
+                <div class="modal_flight-card">
+                    <span class="flight_title">Chuyến bay từ TP HCM đến Hà Nội</span>
+                    <div class="flight_tranfer">
+                        <span>TP HCM</span>
+                        <div class="arrow-container">
+                            <div class=" line_size-s"></div>
+                            <div class="arrow-right"></div>
+                        </div>
+                        <span>Ha Noi</span>
+                    </div>
+                    <div class="modal_card-detail">
+                        <span class="date">29 tháng 9 năm 2024</span>
+                        <span class="number_client">1 người</span>
+                        <span class="flight_type">Hạng 1</span>
+                    </div>
+                </div>
+
+                <div class="modal_detail-wrap">
+                    <div class="modal_detail-left">
+                        <div class="modal_detail">
+                            <div class="modal_detail-title">
+                                <span class="flight_tranfer-title">Chi tiết chuyến bay</span>
+                                <div class="flight_tranfer">
+                                    <span>TP HCM (SGN)</span>
+                                    <div class="arrow-container">
+                                        <div class="line_size-s"></div>
+                                        <div class="arrow-right"></div>
+                                    </div>
+                                    <span>Ha Noi (DAD)</span>
+                                </div>
+                            </div>
+                            <span class="date-detail">Chủ nhật, 29 tháng 9 năm 2024</span>
+                            <div class="modal_detail-body">
+                                <img src="img.png" alt="">
+                                <span class="modal_detail-body-title">VietNam Airlines</span>
+                                <div class="time_detail">
+                                    <span class="modal_time">23:00</span>
+                                    <span class="time_gap">9h</span>
+                                    <span class="modal_time">6:00</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal_price">
+                            <div class="modal_price-detail">
+                                <div class="modal_price-type">
+                                    <span>Loại vé: </span>
+                                    <span>Hạng 1</span>
+                                </div>
+                                <div class="modal_price-type">
+                                    <span>số lượng: </span>
+                                    <span>1</span>
+                                </div>
+                            </div>
+                            <div class="price_submit">Giá phải trả: 2.444.444 VND</div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal_information">
+                        <div class="modal_information-title">
+                            <span>Thông tin</span>
+                            <i class='bx bx-info-circle'></i>
+                        </div>
+                        <span class="modal_infor-title">Sân bay trung gian</span>
+                        <div class="modal_form-infor">
+                            <div class="modal_form-from">
+                                <span>Sân bay: <span>Đà Nẵng</span></span>
+                                <span>Thời gian bay: <span>30m</span></span>
+                                <span>Ghi chú: <span>...</span></span>
+                            </div>
+                            <div class="modal_form-to">
+                                <span>Sân bay: <span>Đà Nẵng</span></span>
+                                <span>Thời gian dừng: <span>30m</span></span>
+                                <span>Ghi chú: <span>...</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        const detailBtns = document.querySelectorAll('.detail_btn');
+        const modalWrap = document.querySelector('.modal');
+        const modalBackground = document.querySelector('.modal_background');
+
+        detailBtns.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                modalWrap.classList.remove('disable');
+                modalBackground.classList.remove('disable');
+            });
+        });
+        modalBackground.addEventListener('click', () => {
+            modalWrap.classList.add('disable');
+            modalBackground.classList.add('disable');
+        });
+    </script>
+</body>
+
+</html>

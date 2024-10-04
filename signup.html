@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="logo.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+        integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <title>SignUp Airline</title>
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* start head */
+.head {
+    width: 100%;
+    height: 110px;
+    background-color: #E4EEF6;
+    display: flex;
+}
+
+.head .name {
+    width: 50%;
+    height: 100%;
+    font-size: 50px;
+    font-family: 'Arial Black', sans-serif;
+    font-style: italic;
+    padding-left: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.head .logsig {
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+
+}
+
+.logsig .bt1 {
+    color: white;
+    background-color: #5601FF;
+    border: none;
+    font-size: 22px;
+    padding: 7px 35px;
+    margin-left: 175px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.logsig .bt1.bt1:hover,
+.logsig .bt2:hover {
+    background-color: #4704ce;
+}
+
+.logsig .bt2 {
+    color: white;
+    background-color: #5601FF;
+    border: none;
+    font-size: 22px;
+    padding: 7px 25px;
+    margin-left: 70px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* end head */
+
+/* start form */
+.container {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    width: 400px;
+    height: auto;
+    border-radius: 20px;
+    background-color: #D3E5F9;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 22px;
+}
+
+.sig {
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+span {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 8px;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 13px;
+    font-size: 17px;
+}
+
+input:focus {
+    outline: none;
+}
+
+#username-icon,
+#password-icon1,
+#password-icon2{
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000000;
+}
+
+#eye1,
+#eye2 {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #000000;
+}
+
+.submit {
+    width: 100%;
+    border-radius: 13px;
+    border: none;
+    padding: 10px 40px;
+    margin-top: 20px;
+    background-color: #1521d4;
+    color: white;
+    font-size: 20px;
+}
+
+.submit:hover {
+    background-color: #3d48df;
+}
+
+/* end form */
+    </style>
+</head>
+
+<body>
+    <!-- start head -->
+    <div class="head">
+        <div class="name">Airline</div>
+        <div class="logsig">
+            <a href="login.html"><button class="bt1">Login</button></a>
+            <a href="signup.html"><button class="bt2">Signup</button></a>
+        </div>
+    </div>
+    <!-- end head -->
+
+    <!-- start form -->
+    <div class="container">
+        <form action="">
+            <span class="sig">Signup</span>
+
+            <span>Tài khoản</span>
+            <div class="input-container">
+                <i class="fas fa-user" id="username-icon"></i>
+                <input type="text" placeholder="Nhập tài khoản" id="username">
+            </div>
+
+            <span>Mật Khẩu</span>
+            <div class="input-container">
+                <i class="fas fa-lock" id="password-icon1"></i>
+                <input type="password" placeholder="Nhập mật khẩu" id="password1">
+                <i class="far fa-eye" id="eye1" onclick="togglePassword('password1', this)"></i>
+            </div>
+
+            <span>Nhập lại mật khẩu</span>
+            <div class="input-container">
+                <i class="fas fa-lock" id="password-icon2"></i>
+                <input type="password" placeholder="Nhập lại mật khẩu" id="password2">
+                <i class="far fa-eye" id="eye2" onclick="togglePassword('password2', this)"></i>
+            </div>
+
+            <button class="submit">Submit</button>
+        </form>
+
+    </div>
+    <!-- end form -->
+    <script>
+        function togglePassword(passwordId, eyeIcon) {
+            var passwordInput = document.getElementById(passwordId);
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.classList.remove("fa-eye");
+                eyeIcon.classList.add("fa-eye-slash");
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.classList.remove("fa-eye-slash");
+                eyeIcon.classList.add("fa-eye");
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
